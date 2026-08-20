@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__TITLE__</title>
+<style>
+:root{
+  --bg:#FAFAF8;--card:#FFFFFF;--line:#EAE8E3;--ink:#1A1A1A;--ink-2:#6B6B6B;--ink-3:#9A9A9A;
+  --xhs:#FF2442;--like:#FF2442;--save:#F5A623;--cmt:#4A90D9;--ok:#1F9D55;--warn:#B7791F;--r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;font-size:15px;line-height:1.7;padding:56px 24px 80px}
+.wrap{max-width:1080px;margin:0 auto}
+.hd{border-bottom:2px solid var(--ink);padding-bottom:28px;margin-bottom:44px}
+.eyebrow{font-family:Impact,"Arial Narrow",sans-serif;letter-spacing:.18em;font-size:15px;color:var(--xhs);margin-bottom:10px}
+h1{font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+h1 em{font-style:normal;color:var(--xhs)}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:13.5px}
+.meta b{color:var(--ink);font-weight:500}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.kpi span{display:block;font-size:12.5px;color:var(--ink-2);letter-spacing:.04em;margin-bottom:6px}
+.kpi strong{font-family:Impact,"Arial Narrow",sans-serif;font-size:40px;font-weight:400;line-height:1;letter-spacing:.01em}
+.kpi .u{font-family:inherit;font-size:14px;color:var(--ink-3);margin-left:4px}
+.kpi .hl strong{color:var(--xhs)}
+.lede{font-size:16.5px;line-height:1.95;color:#2A2A2A;border-left:3px solid var(--xhs);padding:4px 0 4px 20px;margin:0 0 44px}
+.lede b{font-weight:700;color:var(--ink)}
+section{margin-bottom:52px}
+h2{font-size:13px;letter-spacing:.14em;color:var(--ink-2);font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:24px;text-transform:uppercase}
+h2 i{font-style:normal;color:var(--ink-3);text-transform:none;letter-spacing:0;margin-left:8px;font-size:12.5px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px 16px}
+.ch.full{grid-column:1/-1}
+.ch h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.ch p{font-size:12.5px;color:var(--ink-3);margin-bottom:18px}
+.cbox{position:relative;height:260px}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--xhs);border-radius:var(--r);padding:24px 26px;margin-bottom:14px}
+.note.fb{border-left-color:var(--ink-3);background:#FCFCFA}
+.nt{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.rk{font-family:Impact,"Arial Narrow",sans-serif;font-size:30px;color:var(--ink-3);line-height:1;min-width:34px}
+.nt h3{font-size:18px;font-weight:700;line-height:1.45;flex:1}
+.au{font-size:13px;color:var(--ink-2);margin-bottom:14px}
+.nums{display:flex;gap:32px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:16px}
+.nums div span{display:block;font-size:11.5px;color:var(--ink-3);letter-spacing:.05em;margin-bottom:2px}
+.nums div b{font-family:Impact,"Arial Narrow",sans-serif;font-size:26px;font-weight:400;letter-spacing:.01em}
+.n-like b{color:var(--like)}.n-save b{color:var(--save)}.n-cmt b{color:var(--cmt)}
+.nums .na b{color:var(--ink-3);font-family:inherit;font-size:15px}
+.tags{margin-bottom:14px;display:flex;flex-wrap:wrap;gap:7px}
+.tags i{font-style:normal;font-size:12px;color:var(--ink-2);background:#F4F3EF;border-radius:20px;padding:3px 11px}
+.judge{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#FBFAF7;border:1px dashed var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.judge div span{display:block;font-size:11px;color:var(--ink-3);letter-spacing:.05em}
+.judge div b{font-size:13.5px;font-weight:500}
+.sug{font-size:14px;color:#333;background:#FFF8F3;border-left:2px solid var(--save);padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:16px}
+.sug span{color:var(--warn);font-weight:700;margin-right:6px}
+.lk{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px}
+.lk a{color:var(--xhs);text-decoration:none;border-bottom:1px solid rgba(255,36,66,.3);word-break:break-all}
+.lk a:hover{border-bottom-color:var(--xhs)}
+.bdg{font-size:11.5px;padding:2px 9px;border-radius:20px;font-weight:500;white-space:nowrap}
+.b-ok{background:#E8F5EC;color:var(--ok)}
+.b-fb{background:#FDF3E3;color:var(--warn)}
+.grp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grp div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.grp h4{font-size:14px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.grp .g1 h4{color:var(--xhs)}.grp .g2 h4{color:var(--warn)}.grp .g3 h4{color:var(--ink-3)}
+.grp ol{margin-left:18px;font-size:13.5px;line-height:1.9;color:#333}
+.grp p{font-size:13px;color:var(--ink-3)}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:12.5px;color:var(--ink-3);line-height:1.9}
+footer b{color:var(--ink-2);font-weight:500}
+.disc{background:#FBFAF7;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:20px;font-size:12.5px;color:var(--ink-2);line-height:1.85}
+.tip{font-size:11.5px;color:var(--ink-3);margin-top:6px}
+@media(max-width:860px){body{padding:32px 16px 60px}h1{font-size:28px}.kpi,.charts,.judge,.grp{grid-template-columns:1fr 1fr}.nums{gap:20px}}
+@media(max-width:560px){.kpi,.judge,.grp{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <div class="eyebrow">XHS TREND RADAR</div>
+    <h1 id="r-title"></h1>
+    <div class="meta" id="r-meta"></div>
+  </div>
+  <div class="kpi" id="r-kpi"></div>
+  <div class="lede" id="r-lede"></div>
+
+  <section>
+    <h2>互动数据 <i>事实层 · 均为抓取时点快照 · 点击图表元素跳转对应笔记</i></h2>
+    <div class="charts">
+      <div class="ch full">
+        <h3>赞 / 藏 / 评 三维对比</h3>
+        <p>只有打开详情页的条目才有藏与评；灰色缺口即兜底条目 · 点柱子跳笔记</p>
+        <div class="cbox"><canvas id="c1"></canvas></div>
+      </div>
+      <div class="ch">
+        <h3>发布新鲜度 × 互动量</h3>
+        <p>越靠右上 = 越新且越热，窗口大概率还开着 · 点气泡跳笔记</p>
+        <div class="cbox"><canvas id="c2"></canvas></div>
+      </div>
+      <div class="ch">
+        <h3>驱动力分布</h3>
+        <p>由赞/藏/评比例推出，缺数据的条目计入「未获取」</p>
+        <div class="cbox"><canvas id="c3"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>笔记明细 <i>事实与判断分区呈现</i></h2>
+    <div id="r-notes"></div>
+  </section>
+
+  <section>
+    <h2>可执行性分组 <i>判断层</i></h2>
+    <div class="grp" id="r-groups"></div>
+  </section>
+
+  <footer id="r-foot"></footer>
+</div>
+
+<script>__CHARTJS__</script>
+<script>
+// ============ 数据（模型只替换这一段 JSON） ============
+const REPORT_DATA = __REPORT_DATA__;
+// =====================================================
+
+(function(){
+  const D = REPORT_DATA;
+  const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const safeBold = s => esc(s).replace(/&lt;(\/?)b&gt;/gi,'<$1b>');
+  const safeUrl = value => {
+    try {
+      const u = new URL(String(value||''));
+      return u.protocol==='https:' && ['xiaohongshu.com','www.xiaohongshu.com'].includes(u.hostname) ? u.href : '';
+    } catch (_) { return ''; }
+  };
+  const fmt = n => (n==null||n==='')?'未获取':(n>=10000?(n/10000).toFixed(1)+'万':n>=1000?(n/1000).toFixed(1)+'k':n);
+  const open = url => { const safe=safeUrl(url); if(safe) window.open(safe,'_blank','noopener,noreferrer'); };
+  const verified = D.notes.filter(n=>n.status==='verified');
+
+  // ---- 页头 ----
+  document.getElementById('r-title').innerHTML = '「<em>'+esc(D.keyword)+'</em>」小红书热点报告';
+  document.title = D.keyword+' · 小红书热点报告';
+  document.getElementById('r-meta').innerHTML =
+    '<div>抓取时点 <b>'+esc(D.captured_at)+'</b></div>'+
+    '<div>时间范围 <b>'+esc(D.range)+'</b></div>'+
+    '<div>排序口径 <b>'+esc(D.sort_note)+'</b></div>'+
+    '<div>账号定位 <b>'+esc(D.account||'未定')+'</b></div>';
+
+  // ---- KPI 四格（事实结论） ----
+  document.getElementById('r-kpi').innerHTML =
+    kpi(true,'最高赞', fmt(D.kpi.max_like), D.kpi.max_like_note)+
+    kpi(true,'最高藏赞比', D.kpi.max_sl_ratio, D.kpi.max_sl_note)+
+    kpi(false,'最新一条', D.kpi.newest_days, '天前 · '+(D.kpi.newest_note||''))+
+    kpi(false,'窗口开着', D.kpi.window_open, '/ '+verified.length+' 条');
+  function kpi(hl,label,val,unit){
+    return '<div'+(hl?' class="hl"':'')+'><span>'+esc(label)+'</span><strong>'+esc(val)+
+      '</strong>'+(unit?'<span class="u">'+esc(unit)+'</span>':'')+'</div>';
+  }
+
+  // ---- 导语 ----
+  document.getElementById('r-lede').innerHTML = safeBold(D.lede);
+
+  // ---- 笔记明细 ----
+  document.getElementById('r-notes').innerHTML = D.notes.map((n,i)=>{
+    const rk = String(i+1).padStart(2,'0');
+    const fb = n.status!=='verified';
+    const nums = fb
+      ? '<div class="n-like"><span>赞</span><b>'+fmt(n.like)+'</b></div><div class="na"><span>藏</span><b>未获取</b></div><div class="na"><span>评</span><b>未获取</b></div>'
+      : '<div class="n-like"><span>赞</span><b>'+fmt(n.like)+'</b></div><div class="n-save"><span>藏</span><b>'+fmt(n.save)+'</b></div><div class="n-cmt"><span>评</span><b>'+fmt(n.comment)+'</b></div>';
+    const tags = (n.tags&&n.tags.length)? n.tags.map(t=>'<i>#'+esc(t)+'</i>').join('') : '<i>标签未获取</i>';
+    const j = n.judge||{};
+    const judge = ['阶段','驱动力','门槛','相关性'].map((k,ix)=>{
+      const v=[j.stage,j.drive,j.barrier,j.relevance][ix];
+      return '<div><span>'+k+'</span><b>'+esc(v||'未获取')+'</b></div>';
+    }).join('');
+    const safe = safeUrl(n.url);
+    const link = fb
+      ? '<span class="bdg b-fb">搜索兜底</span><span style="color:var(--ink-2)">'+esc(n.fail_reason||'详情页打开失败')+' —— 请搜索「'+esc(n.author)+' '+esc(n.title)+'」</span>'
+      : '<a href="'+esc(safe)+'" target="_blank" rel="noopener noreferrer">'+esc(safe.replace(/^https?:\/\/(www\.)?/,'').slice(0,42))+'…</a><span class="bdg b-ok">✓ 已验证</span>';
+    return '<div class="note'+(fb?' fb':'')+'">'+
+      '<div class="nt"><div class="rk">'+rk+'</div><h3>'+esc(n.title)+'</h3></div>'+
+      '<div class="au">@'+esc(n.author)+' · '+(n.publish_date?'发布 '+esc(n.publish_date):'发布时间 未获取')+'</div>'+
+      '<div class="nums">'+nums+'</div>'+
+      '<div class="tags">'+tags+'</div>'+
+      '<div class="judge">'+judge+'</div>'+
+      '<div class="sug"><span>建议</span>'+esc(n.suggestion||'待补齐数据后判断')+'</div>'+
+      '<div class="lk">'+link+'</div></div>';
+  }).join('');
+
+  // ---- 分组 ----
+  const g = D.groups||{};
+  document.getElementById('r-groups').innerHTML =
+    '<div class="g1"><h4>现在就做</h4>'+(g.now&&g.now.length?'<ol>'+g.now.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol>':'<p>无</p>')+'</div>'+
+    '<div class="g2"><h4>排期做</h4>'+(g.plan&&g.plan.length?'<ol>'+g.plan.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol>':'<p>无</p>')+'</div>'+
+    '<div class="g3"><h4>只做参考</h4><p>'+esc(g.ref||'无')+'</p></div>';
+
+  // ---- 页脚 ----
+  const f = D.footer||{};
+  document.getElementById('r-foot').innerHTML =
+    '<div class="disc">'+
+    '<b>抓取完整度</b>　目标 '+D.target+' 条，✓ 已验证 '+verified.length+' 条，搜索兜底 '+(D.notes.length-verified.length)+' 条。<br>'+
+    '<b>口径说明</b>　'+esc(D.sort_note)+'，<b>不代表小红书官方点赞榜</b>。<br>'+
+    '<b>数据时效</b>　互动数字为 '+esc(D.captured_at)+' 快照，会随时间增长。<br>'+
+    '<b>链接时效</b>　含平台签名 xsec_token，可能失效；失效后按「作者 + 标题」搜索仍可定位。<br>'+
+    '<b>阶段判断</b>　单次抓取的推断值，非增速实测；需实测请隔 24 小时再跑一轮做差。'+
+    '</div>Generated by <b>xhs-trend-radar</b> · 数据为公开可见内容 · 内容版权归原作者';
+
+  // ============ 三张图表（写死，不许改） ============
+  if(typeof Chart==='undefined'){
+    ['c1','c2','c3'].forEach(id=>{const el=document.getElementById(id);if(el)el.parentElement.innerHTML='<p style="color:var(--ink-3);padding:40px 0;text-align:center">图表库未加载</p>';});
+    return;
+  }
+  const F={font:{family:"system-ui, sans-serif",size:11},color:'#6B6B6B'};
+  const GRID={color:'#EFEDE8'};
+  Chart.defaults.font.family="system-ui, sans-serif";
+  const clickTo = arr => (evt,items)=>{ if(items&&items.length){ open(arr[items[0].index]&&arr[items[0].index].url); } };
+
+  // 图 1 · 赞藏评对比（点柱子跳笔记）
+  new Chart(document.getElementById('c1'),{
+    type:'bar',
+    data:{labels:D.notes.map((n,i)=>String(i+1).padStart(2,'0')),
+      datasets:[
+        {label:'赞',data:D.notes.map(n=>n.like??null),backgroundColor:'#FF2442',borderRadius:3},
+        {label:'藏',data:D.notes.map(n=>n.status==='verified'?(n.save??null):null),backgroundColor:'#F5A623',borderRadius:3},
+        {label:'评',data:D.notes.map(n=>n.status==='verified'?(n.comment??null):null),backgroundColor:'#4A90D9',borderRadius:3}
+      ]},
+    options:{responsive:true,maintainAspectRatio:false,onClick:clickTo(D.notes),
+      plugins:{legend:{position:'top',labels:{...F,boxWidth:11,padding:16}},
+        tooltip:{callbacks:{title:it=>D.notes[it[0].dataIndex]?D.notes[it[0].dataIndex].title:''}}},
+      scales:{x:{grid:{display:false},ticks:F},y:{grid:GRID,ticks:{...F,callback:v=>v>=10000?(v/10000)+'万':v>=1000?v/1000+'k':v}}}}
+  });
+
+  // 图 2 · 发布新鲜度 × 互动量（越右越新，点气泡跳笔记）
+  const win = D.range_days||30;
+  const scatterPts = verified.filter(n=>n.days_ago!=null).map(n=>({x:win-n.days_ago,y:n.like,url:n.url,title:n.title,days:n.days_ago}));
+  new Chart(document.getElementById('c2'),{
+    type:'scatter',
+    data:{datasets:[{label:'笔记',data:scatterPts,backgroundColor:'rgba(255,36,66,.7)',pointRadius:7,pointHoverRadius:10}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      onClick:(e,items)=>{if(items&&items.length)open(scatterPts[items[0].index].url);},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const p=scatterPts[c.dataIndex];return p.title.slice(0,16)+' · '+p.days+'天前 · 赞'+fmt(p.y);}}}},
+      scales:{x:{title:{display:true,text:'发布新鲜度（越右越新）',...F},grid:GRID,min:0,max:win,ticks:{...F,callback:v=>(win-v)+'天前'}},
+        y:{title:{display:true,text:'点赞数',...F},grid:GRID,ticks:{...F,callback:v=>v>=10000?(v/10000)+'万':v>=1000?v/1000+'k':v}}}}
+  });
+
+  // 图 3 · 驱动力分布
+  const dd = D.drive_dist||{};
+  new Chart(document.getElementById('c3'),{
+    type:'doughnut',
+    data:{labels:['实用（藏主导）','信息差','情绪/身份（评主导）','未获取'],
+      datasets:[{data:[dd.practical||0,dd.info||0,dd.emotion||0,dd.unknown||0],
+        backgroundColor:['#F5A623','#FF2442','#4A90D9','#D8D5CE'],borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
+      plugins:{legend:{position:'right',labels:{...F,boxWidth:11,padding:12}}}}
+  });
+})();
+</script>
+</body>
+</html>

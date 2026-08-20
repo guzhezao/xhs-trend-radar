@@ -1,0 +1,31 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+*.bak
+*.tmp
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local secrets and browser state
+.env
+.env.*
+!.env.example
+cookies*.json
+.cookies/
+browser-profile/
+.playwright/
+
+# Runtime outputs (never publish real collected data)
+xhs-trend-*.data.json
+xhs-trend-*.json
+xhs-trend-*.html
+reports/
+output/
+screenshots/
+*.log
+*.zip
