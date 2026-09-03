@@ -54,14 +54,14 @@ Mavis：（右侧浏览器自己动起来）
 macOS / Linux：
 
 ```bash
-git clone https://github.com/cool111111/xhs-trend-radar.git \
+git clone https://github.com/guzhezao/xhs-trend-radar.git \
   ~/.minimax/skills/xhs-trend-radar
 ```
 
 Windows PowerShell：
 
 ```powershell
-git clone https://github.com/cool111111/xhs-trend-radar.git `
+git clone https://github.com/guzhezao/xhs-trend-radar.git `
   "$HOME\.minimax\skills\xhs-trend-radar"
 ```
 
